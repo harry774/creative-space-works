@@ -40,7 +40,7 @@ const Index = () => {
           </div>
         </div>
         {/* Right side gallery */}
-        <div className="w-1/2 relative overflow-hidden">
+        <div className="w-3/4 relative overflow-hidden">
           <TransitioningGallery />
         </div>
       </section>
@@ -102,10 +102,10 @@ const Index = () => {
             </p>
           </motion.div>
 
-          <Carousel className="w-full max-w-5xl">
+          <Carousel className="w-full max-w-7xl">
             <CarouselContent>
               {portfolioItems.map((item, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -204,34 +204,114 @@ const features = [
 
 const portfolioItems = [
   {
+    title: "Modern Kitchen Room",
+    category: "Interior Design",
+    image: "/images/image1.jpeg",
+  },
+  {
+    title: "Modern Office Reception",
+    category: "Interior Design",
+    image: "/images/image2.jpeg",
+  },
+  {
     title: "Modern Living Room",
     category: "Interior Design",
-    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop",
+    image: "/images/image3.jpeg",
   },
   {
-    title: "Product Visualization",
-    category: "3D Modeling",
-    image: "https://images.unsplash.com/photo-1581224463294-908316338239?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    title: "Corporate Identity",
-    category: "Graphic Design",
-    image: "https://images.unsplash.com/photo-1626785774625-0b1c09947159?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    title: "Minimalist House",
-    category: "Architecture",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    title: "Brand Guidelines",
-    category: "Graphic Design",
-    image: "https://images.unsplash.com/photo-1634942537034-2531766767d1?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    title: "Office Space",
+    title: "Modern Kitchen Room",
     category: "Interior Design",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop",
+    image: "/images/image4.jpeg",
+  },
+  {
+    title: "Modern Plaza",
+    category: "Exterior Design",
+    image: "/images/image5.jpeg",
+  },
+  {
+    title: "Modern Living Room",
+    category: "Interior Design",
+    image: "/images/image6.jpeg",
+  },
+  {
+    title: "Modern Living Room",
+    category: "Interior Design",
+    image: "/images/image7.jpeg",
+  }, 
+  {
+    title: "Modern Living Room",
+    category: "Interior Design",
+    image: "/images/image8.jpeg",
+  }, 
+  {
+    title: "Modern Living Room",
+    category: "Interior Design",
+    image: "/images/image9.jpeg",
+  }, 
+  {
+    title: "Modern Living Room",
+    category: "Interior Design",
+    image: "/images/image10.jpeg",
+  }, 
+  {
+    title: "Modern Living Room",
+    category: "Interior Design",
+    image: "/images/image11.jpeg",
+  }, 
+  {
+    title: "Modern Living Room",
+    category: "Interior Design",
+    image: "/images/image12.jpeg",
+  }, 
+  {
+    title: "Modern Living Room",
+    category: "Interior Design",
+    image: "/images/image13.jpeg",
+  },
+  {
+    title: "Modern Living Room",
+    category: "Interior Design",
+    image: "/images/image14.jpeg",
+  },
+  {
+    title: "Modern Living Room",
+    category: "Interior Design",
+    image: "/images/image15.jpeg",
+  },
+  {
+    title: "Modern Living Room",
+    category: "Interior Design",
+    image: "/images/image16.jpeg",
+  },
+  {
+    title: "Modern Living Room",
+    category: "Interior Design",
+    image: "/images/image17.jpeg",
+  },
+  {
+    title: "Modern Living Room",
+    category: "Interior Design",
+    image: "/images/image18.jpeg",
+  },
+  {
+    title: "Modern Living Room",
+    category: "Interior Design",
+    image: "/images/image19.jpeg",
+  },
+  {
+    title: "Modern Living Room",
+    category: "Interior Design",
+    image: "/images/image20.jpeg",
+  },
+  {
+    title: "Modern Living Room",
+    category: "Interior Design",
+    image: "/images/image21.jpeg",
+  },
+  {
+    title: "Modern Living Room",
+    category: "Interior Design",
+    image: "/images/image22.jpeg",
   },
 ];
 

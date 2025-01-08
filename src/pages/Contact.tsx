@@ -35,14 +35,14 @@ const Contact = () => {
                   <Mail className="w-6 h-6 text-sage-500 mt-1" />
                   <div className="ml-4">
                     <h3 className="font-medium text-gray-900">Email</h3>
-                    <p className="text-gray-600">hello@studio.com</p>
+                    <p className="text-gray-600">xylo.nirali@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <Phone className="w-6 h-6 text-sage-500 mt-1" />
                   <div className="ml-4">
                     <h3 className="font-medium text-gray-900">Phone</h3>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                    <p className="text-gray-600">+1 (437) 982-6367</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -50,9 +50,9 @@ const Contact = () => {
                   <div className="ml-4">
                     <h3 className="font-medium text-gray-900">Location</h3>
                     <p className="text-gray-600">
-                      123 Design Street
+                      7280 Darcel Ave
                       <br />
-                      San Francisco, CA 94107
+                      Mississauga, ON, L4T 3T7
                     </p>
                   </div>
                 </div>
