@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { TransitioningGallery } from "@/components/TransitioningGallery";
 import {
   Carousel,
   CarouselContent,
@@ -12,20 +13,14 @@ import {
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2070&auto=format&fit=crop')`,
-          }}
-        />
-        <div className="absolute inset-0 bg-black/40" /> {/* Dark overlay for better text readability */}
+      <section className="relative h-screen flex items-center overflow-hidden">
+        <TransitioningGallery />
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center max-w-3xl mx-auto"
+            className="max-w-3xl text-left" // Changed to text-left
           >
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Bringing Your Vision to Life
