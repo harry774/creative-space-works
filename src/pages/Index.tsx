@@ -1,6 +1,13 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const Index = () => {
   return (
@@ -70,6 +77,57 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <section className="py-24 bg-sage-50">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto text-center mb-16"
+          >
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Our Portfolio
+            </h2>
+            <p className="text-gray-600">
+              Explore our latest works and creative projects
+            </p>
+          </motion.div>
+
+          <Carousel className="w-full max-w-5xl mx-auto">
+            <CarouselContent>
+              {portfolioItems.map((item, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="relative group overflow-hidden rounded-lg"
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="text-center p-4">
+                        <h3 className="text-white font-semibold text-lg mb-2">
+                          {item.title}
+                        </h3>
+                        <p className="text-white text-sm">{item.category}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+      </section>
     </div>
   );
 };
@@ -134,6 +192,39 @@ const features = [
         />
       </svg>
     ),
+  },
+];
+
+const portfolioItems = [
+  {
+    title: "Modern Living Room",
+    category: "Interior Design",
+    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "Product Visualization",
+    category: "3D Modeling",
+    image: "https://images.unsplash.com/photo-1581224463294-908316338239?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "Corporate Identity",
+    category: "Graphic Design",
+    image: "https://images.unsplash.com/photo-1626785774625-0b1c09947159?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "Minimalist House",
+    category: "Architecture",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "Brand Guidelines",
+    category: "Graphic Design",
+    image: "https://images.unsplash.com/photo-1634942537034-2531766767d1?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "Office Space",
+    category: "Interior Design",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop",
   },
 ];
 
