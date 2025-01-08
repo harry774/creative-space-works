@@ -13,40 +13,46 @@ import {
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <section className="relative h-screen flex items-center overflow-hidden">
-        <TransitioningGallery />
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl text-left" // Changed to text-left
-          >
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Bringing Your Vision to Life
-            </h1>
-            <p className="text-xl text-gray-100 mb-8">
-              Expert 3D modeling, rendering, and design services for your creative projects
-            </p>
-            <Link
-              to="/services"
-              className="inline-flex items-center px-6 py-3 bg-sage-500 text-white rounded-md hover:bg-sage-600 transition-colors duration-200"
+      <section className="relative h-screen flex">
+        {/* Left content */}
+        <div className="w-1/2 bg-white flex items-center">
+          <div className="container px-6">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-xl"
             >
-              Explore Services
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </motion.div>
+              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                Bringing Your Vision to Life
+              </h1>
+              <p className="text-xl text-gray-600 mb-8">
+                Expert 3D modeling, rendering, and design services for your creative projects
+              </p>
+              <Link
+                to="/services"
+                className="inline-flex items-center px-6 py-3 bg-sage-500 text-white rounded-md hover:bg-sage-600 transition-colors duration-200"
+              >
+                Explore Services
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+        {/* Right side gallery */}
+        <div className="w-1/2 relative overflow-hidden">
+          <TransitioningGallery />
         </div>
       </section>
 
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-sage-50">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center mb-16"
+            className="max-w-3xl text-left mb-16"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Why Choose Us
@@ -64,9 +70,9 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center"
+                className="text-left"
               >
-                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-sage-100 text-sage-600">
+                <div className="w-16 h-16 mb-6 flex items-center justify-center rounded-full bg-sage-100 text-sage-600">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -79,14 +85,14 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-sage-50">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center mb-16"
+            className="max-w-3xl text-left mb-16"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Our Portfolio
@@ -96,7 +102,7 @@ const Index = () => {
             </p>
           </motion.div>
 
-          <Carousel className="w-full max-w-5xl mx-auto">
+          <Carousel className="w-full max-w-5xl">
             <CarouselContent>
               {portfolioItems.map((item, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">

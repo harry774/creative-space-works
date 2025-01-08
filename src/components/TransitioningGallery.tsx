@@ -28,7 +28,7 @@ export const TransitioningGallery = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute inset-0">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
@@ -39,12 +39,12 @@ export const TransitioningGallery = () => {
           className="absolute inset-0"
         >
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-500"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
               backgroundImage: `url('${images[currentIndex].url}')`,
             }}
           />
-          <div className="absolute inset-0 bg-black/50" /> {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/30" /> {/* Lighter overlay */}
         </motion.div>
       </AnimatePresence>
     </div>
