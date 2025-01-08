@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Cube, PenTool, Home, Building2, Layout, Image } from "lucide-react";
+import { Box, PenTool, Home, Building2, Layout, Image } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 
 const Services = () => {
@@ -70,7 +70,7 @@ const services = [
     title: "3D Modeling",
     description:
       "High-quality 3D models for products, architecture, and visualization",
-    icon: <Cube className="w-6 h-6" />,
+    icon: <Box className="w-6 h-6" />,
   },
   {
     title: "Rendering",
