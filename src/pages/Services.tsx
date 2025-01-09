@@ -53,7 +53,7 @@ const Services = () => {
             <motion.a
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              href="/Contact"
+              href="/contact"
               className="inline-flex items-center px-6 py-3 bg-sage-500 text-white rounded-md hover:bg-sage-600 transition-colors duration-200"
             >
               Get in Touch
