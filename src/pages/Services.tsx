@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Box, PenTool, Home, Building2, Layout, Image } from "lucide-react";
+import { Box, PenTool, Home, Building2, Layout, Image, Trees } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 
 const Services = () => {
@@ -67,40 +67,40 @@ const Services = () => {
 
 const services = [
   {
-    title: "3D Modeling",
+    title: "3D Modeling and Rendering",
     description:
       "High-quality 3D models for products, architecture, and visualization",
     icon: <Box className="w-6 h-6" />,
   },
   {
-    title: "Rendering",
+    title: "3D Virtual Tour",
     description:
-      "Photorealistic rendering services bringing your designs to life",
+      "Immersive 3D virtual tours with photorealistic renderings that bring your designs to life",
     icon: <Image className="w-6 h-6" />,
   },
   {
-    title: "Graphic Design",
+    title: "2D Marketing Drawings",
     description:
-      "Creative design solutions for branding, marketing, and digital media",
-    icon: <PenTool className="w-6 h-6" />,
+      "Transform your ideas into compelling 2D marketing drawings that effectively showcase your designs and capture attention",
+    icon: <Layout className="w-6 h-6" />,
   },
   {
-    title: "Architecture",
+    title: "Commercial Office Designs",
     description:
-      "Innovative architectural design for residential and commercial projects",
+      "Design functional and inspiring commercial office spaces that foster productivity and reflect your brand's identity",
     icon: <Building2 className="w-6 h-6" />,
   },
   {
-    title: "Interior Design",
+    title: "Interior Space Design",
     description:
-      "Beautiful and functional interior spaces that inspire and delight",
+      "Craft personalized interior spaces that blend style, functionality, and comfort to enhance the way you live or work",
     icon: <Home className="w-6 h-6" />,
   },
   {
-    title: "UI/UX Design",
+    title: "Landscape Rendering",
     description:
-      "User-centered design solutions for digital products and experiences",
-    icon: <Layout className="w-6 h-6" />,
+      "Bring your outdoor spaces to life with detailed and vibrant landscape renderings that showcase your design vision in stunning realism",
+    icon: <Trees className="w-6 h-6" />,
   },
 ];
 

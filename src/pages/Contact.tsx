@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
 const Contact = () => {
@@ -13,11 +13,11 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto text-center mb-16"
           >
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Get in Touch
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">
+              Book an appointment virtually or at your place
             </h1>
             <p className="text-xl text-gray-600">
-              Let's discuss your project and bring your ideas to life
+            Let’s discuss your project and bring your ideas to life—We can visit your location, saving you time and ensuring a seamless experience
             </p>
           </motion.div>
 
@@ -54,6 +54,14 @@ const Contact = () => {
                       <br />
                       Mississauga, ON, L4T 3T7
                     </p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <a href="https://www.instagram.com/3drenders25/" target="_blank" rel="noopener noreferrer">
+                  <Instagram className="w-6 h-6 text-sage-500 mt-1" />
+                  </a>
+                  <div className="ml-4">
+                  <h3 className="font-medium text-gray-900">Follow us on Instagram</h3>
                   </div>
                 </div>
               </div>
