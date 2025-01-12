@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { TransitioningGallery } from "@/components/TransitioningGallery";
@@ -11,6 +12,37 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
+const preloadImages = (imageUrls) => {
+  return Promise.all(
+    imageUrls.map(
+      (url) =>
+        new Promise((resolve, reject) => {
+          const img = new Image();
+          img.src = url;
+          img.onload = resolve;
+          img.onerror = reject;
+        })
+    )
+  );
+};
+const Portfolio = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const imageUrls = portfolioItems.map((item) => item.image);
+    preloadImages(imageUrls)
+      .then(() => setIsLoaded(true))
+      .catch((error) => console.error("Image preload failed:", error));
+  }, []);
+
+  if (!isLoaded) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <p className="text-gray-700 text-lg">Loading portfolio...</p>
+      </div>
+    );
+  }
+}
 const Index = () => {
   return (
     <div className="min-h-screen">
@@ -104,37 +136,36 @@ const Index = () => {
           </motion.div>
 
           <Carousel className="w-full max-w-7xl">
-            <CarouselContent>
-              {portfolioItems.map((item, index) => (
-                <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="relative group overflow-hidden rounded-lg"
-                  >
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      loading="lazy"
-                      className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="text-center p-4">
-                        <h3 className="text-white font-semibold text-lg mb-2">
-                          {item.title}
-                        </h3>
-                        <p className="text-white text-sm">{item.category}</p>
-                      </div>
+          <CarouselContent>
+            {portfolioItems.map((item, index) => (
+              <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="relative group overflow-hidden rounded-lg"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="text-center p-4">
+                      <h3 className="text-white font-semibold text-lg mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-white text-sm">{item.category}</p>
                     </div>
-                  </motion.div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
+                  </div>
+                </motion.div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
         </div>
       </section>
     </div>
