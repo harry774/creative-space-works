@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { TransitioningGallery } from "@/components/TransitioningGallery";
+import CountUp from "react-countup";
 import {
   Carousel,
   CarouselContent,
@@ -62,10 +63,10 @@ const Index = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <motion.div
-                key={feature.title}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -139,6 +140,14 @@ const Index = () => {
   );
 };
 
+const IncrementalTitle = ({ value, suffix }) => {
+  return (
+    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+      <CountUp end={value} duration={2} suffix={suffix} /> Projects Completed
+    </h3>
+  );
+};
+
 const features = [
   {
     title: "Expert Team",
@@ -200,117 +209,137 @@ const features = [
       </svg>
     ),
   },
+  {
+    title: <IncrementalTitle value={50} suffix="+" />,
+    description: "Proven experienced track record",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        className="w-8 h-8"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M5 3v18a1 1 0 001 1h12a1 1 0 001-1V3H5zm6 10v5m4-5v5m-7-5h10"
+        />
+      </svg>
+    ),
+  },
 ];
 
 const portfolioItems = [
   {
-    title: "Modern Kitchen Room",
+    title: "Modern Kitchen Design",
     category: "Interior Design",
     image: "/images/image1.jpeg",
   },
   {
-    title: "Modern Office Reception",
+    title: "Commercial Office Reception",
     category: "Interior Design",
     image: "/images/image2.jpeg",
   },
   {
-    title: "Modern Living Room",
+    title: "Modern Kitchen Design",
     category: "Interior Design",
     image: "/images/image3.jpeg",
   },
   {
-    title: "Modern Kitchen Room",
+    title: "Living Room Design",
     category: "Interior Design",
     image: "/images/image4.jpeg",
   },
   {
-    title: "Modern Plaza",
+    title: "Commercial Plaza",
     category: "Exterior Design",
     image: "/images/image5.jpeg",
   },
   {
-    title: "Modern Living Room",
+    title: "Drawing Room Aesthetic Design",
     category: "Interior Design",
     image: "/images/image6.jpeg",
   },
   {
-    title: "Modern Living Room",
+    title: "Modern Bedroom",
     category: "Interior Design",
     image: "/images/image7.jpeg",
   }, 
   {
-    title: "Modern Living Room",
+    title: "Modern Bedroom",
     category: "Interior Design",
     image: "/images/image8.jpeg",
   }, 
   {
-    title: "Modern Living Room",
+    title: "Modern Kitchen Space",
     category: "Interior Design",
     image: "/images/image9.jpeg",
   }, 
   {
-    title: "Modern Living Room",
+    title: "Modern Drawing Room",
     category: "Interior Design",
     image: "/images/image10.jpeg",
   }, 
   {
-    title: "Modern Living Room",
+    title: "Aesthetic Beroom",
     category: "Interior Design",
     image: "/images/image11.jpeg",
   }, 
   {
-    title: "Modern Living Room",
+    title: "Minimalist Drawing Room",
     category: "Interior Design",
     image: "/images/image12.jpeg",
   }, 
   {
-    title: "Modern Living Room",
+    title: "Modern Bedroom",
     category: "Interior Design",
     image: "/images/image13.jpeg",
   },
   {
-    title: "Modern Living Room",
+    title: "Bed Room Wall Design",
     category: "Interior Design",
     image: "/images/image14.jpeg",
   },
   {
-    title: "Modern Living Room",
-    category: "Interior Design",
+    title: "Commercial Exterior Design",
+    category: "Exterior Design",
     image: "/images/image15.jpeg",
   },
   {
-    title: "Modern Living Room",
-    category: "Interior Design",
+    title: "Farmhouse Design",
+    category: "Exterior Design",
     image: "/images/image16.jpeg",
   },
   {
-    title: "Modern Living Room",
+    title: "Office Working Space",
     category: "Interior Design",
     image: "/images/image17.jpeg",
   },
   {
-    title: "Modern Living Room",
+    title: "Office Working Space",
     category: "Interior Design",
     image: "/images/image18.jpeg",
   },
   {
-    title: "Modern Living Room",
-    category: "Interior Design",
+    title: "Villa Design",
+    category: "Exterior Design",
     image: "/images/image19.jpeg",
   },
   {
-    title: "Modern Living Room",
-    category: "Interior Design",
+    title: "Villa Design",
+    category: "Exterior Design",
     image: "/images/image20.jpeg",
   },
   {
-    title: "Modern Living Room",
+    title: "Farm house Living Room",
     category: "Interior Design",
     image: "/images/image21.jpeg",
   },
   {
-    title: "Modern Living Room",
-    category: "Interior Design",
+    title: "Farm House Design",
+    category: "Exterior Design",
     image: "/images/image22.jpeg",
   },
 ];
