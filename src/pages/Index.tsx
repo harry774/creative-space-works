@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, X } from "lucide-react"; // Import X for the close button
 import { Link } from "react-router-dom";
 import { TransitioningGallery } from "@/components/TransitioningGallery";
 import CountUp from "react-countup";
@@ -25,6 +25,7 @@ const preloadImages = (imageUrls) => {
     )
   );
 };
+
 const Portfolio = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -42,19 +43,46 @@ const Portfolio = () => {
       </div>
     );
   }
-}
+};
+
 const Index = () => {
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null); // Track the selected image index
+  const [isModalOpen, setIsModalOpen] = useState(false); // Track modal open/close state
+
+  const handleImageClick = (index) => {
+    setSelectedImageIndex(index);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedImageIndex(null);
+  };
+
+  const handleNextImage = () => {
+    setSelectedImageIndex((prevIndex) =>
+      prevIndex < portfolioItems.length - 1 ? prevIndex + 1 : 0
+    );
+  };
+
+  const handlePreviousImage = () => {
+    setSelectedImageIndex((prevIndex) =>
+      prevIndex > 0 ? prevIndex - 1 : portfolioItems.length - 1
+    );
+  };
+
   return (
     <div className="min-h-screen">
-      {/* <section className="relative h-screen flex"> */}
+      {/* Hero Section */}
+      <section className="relative h-screen flex">
         {/* Left content */}
-        {/* <div className="w-1/2 bg-white flex items-center justify-center">
+        <div className="w-[40%] bg-white flex items-center justify-center text-center h-screen">
           <div className="container px-6">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="max-w-xl text-center"
+              className="max-w-xl"
             >
               <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
                 Bringing Your Vision to Life
@@ -71,44 +99,14 @@ const Index = () => {
               </Link>
             </motion.div>
           </div>
-        </div> */}
+        </div>
         {/* Right side gallery */}
-        {/* <div className="w-3/4 relative overflow-hidden">
+        <div className="w-[60%] relative overflow-hidden">
           <TransitioningGallery />
         </div>
-      </section> */}
-      <section className="relative h-screen flex">
-  {/* Left content */}
-  <div className="w-[40%] bg-white flex items-center justify-center text-center h-screen">
-    <div className="container px-6">
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        className="max-w-xl"
-      >
-        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-          Bringing Your Vision to Life
-        </h1>
-        <p className="text-xl text-gray-600 mb-8">
-          Expert 3D modeling, rendering, and design services for your creative projects
-        </p>
-        <Link
-          to="/services"
-          className="inline-flex items-center px-6 py-3 bg-sage-500 text-white rounded-md hover:bg-sage-600 transition-colors duration-200"
-        >
-          Explore Services
-          <ArrowRight className="ml-2 h-4 w-4" />
-        </Link>
-      </motion.div>
-    </div>
-  </div>
-  {/* Right side gallery */}
-  <div className="w-[60%] relative overflow-hidden">
-    <TransitioningGallery />
-  </div>
-</section>
+      </section>
 
+      {/* Why Choose Us Section */}
       <section className="py-24 bg-sage-50">
         <div className="container mx-auto px-6">
           <motion.div
@@ -149,6 +147,7 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Portfolio Section */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div
@@ -167,50 +166,101 @@ const Index = () => {
           </motion.div>
 
           <Carousel className="w-full max-w-7xl">
-          <CarouselContent>
-            {portfolioItems.map((item, index) => (
-              <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="relative group overflow-hidden rounded-lg"
-                >
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="text-center p-4">
-                      <h3 className="text-white font-semibold text-lg mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-white text-sm">{item.category}</p>
+            <CarouselContent>
+              {portfolioItems.map((item, index) => (
+                <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="relative group overflow-hidden rounded-lg cursor-pointer"
+                    onClick={() => handleImageClick(index)}
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="text-center p-4">
+                        <h3 className="text-white font-semibold text-lg mb-2">
+                          {item.title}
+                        </h3>
+                        <p className="text-white text-sm">{item.category}</p>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </section>
+
+      {/* Modal for Full-Size Image */}
+      {isModalOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+          onClick={handleCloseModal}
+        >
+          <div className="relative max-w-4xl w-full">
+            {/* Close Button */}
+            <button
+              onClick={handleCloseModal}
+              className="absolute top-4 right-4 text-white hover:text-gray-300 z-50"
+            >
+              <X className="w-8 h-8" />
+            </button>
+
+            {/* Image */}
+            <motion.img
+              src={portfolioItems[selectedImageIndex].image}
+              alt={portfolioItems[selectedImageIndex].title}
+              className="w-full h-auto max-h-[80vh] object-contain"
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+            />
+
+            {/* Navigation Buttons */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePreviousImage();
+              }}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70"
+            >
+              <ArrowRight className="w-6 h-6 rotate-180" />
+            </button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleNextImage();
+              }}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70"
+            >
+              <ArrowRight className="w-6 h-6" />
+            </button>
+          </div>
+        </motion.div>
+      )}
     </div>
   );
 };
 
-const IncrementalTitle = ({ value, suffix }) => {
-  return (
-    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-      <CountUp end={value} duration={2} suffix={suffix} /> Projects Completed
-    </h3>
-  );
-};
-
+ const IncrementalTitle = ({ value, suffix }) => {
+    return (
+      <h3 className="text-xl font-semibold text-gray-900 mb-2">
+        <CountUp end={value} duration={2} suffix={suffix} /> Projects Completed
+      </h3>
+    );
+  };
 const features = [
   {
     title: "Expert Team",
