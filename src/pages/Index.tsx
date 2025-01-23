@@ -76,7 +76,7 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative h-screen flex">
         {/* Left content */}
-        <div className="w-[40%] bg-white flex items-center justify-center h-screen">
+        <div className="w-[40%] bg-white flex items-center justify-center">
           <div className="container px-6">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -84,15 +84,15 @@ const Index = () => {
               transition={{ duration: 0.8 }}
               className="max-w-xl text-center"
             >
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
                 Bringing Your Vision to Life
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-base sm:text-xl text-gray-600 mb-6 sm:mb-8">
                 Expert 3D modeling, rendering, and design services for your creative projects
               </p>
               <Link
                 to="/services"
-                className="inline-flex items-center px-6 py-3 bg-sage-500 text-white rounded-md hover:bg-sage-600 transition-colors duration-200"
+                className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-sage-500 text-white rounded-md hover:bg-sage-600 transition-colors duration-200 text-sm sm:text-base"
               >
                 Explore Services
                 <ArrowRight className="ml-2 h-4 w-4" />
