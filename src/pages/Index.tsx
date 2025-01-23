@@ -76,13 +76,13 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative h-screen flex">
         {/* Left content */}
-        <div className="w-[40%] bg-white flex items-center justify-center text-center h-screen">
+        <div className="w-[40%] bg-white flex items-center justify-center h-screen">
           <div className="container px-6">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="max-w-xl"
+              className="max-w-xl text-center"
             >
               <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
                 Bringing Your Vision to Life
