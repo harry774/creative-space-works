@@ -3,6 +3,11 @@ import { Mail, Phone, MapPin, Instagram } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
 const Contact = () => {
+  // Load Calendly script
+  const script = document.createElement("script");
+  script.src = "https://assets.calendly.com/assets/external/widget.js";
+  script.async = true;
+  document.body.appendChild(script);
   return (
     <div className="min-h-screen pt-20">
       <section className="py-16 md:py-24">
@@ -75,6 +80,18 @@ const Contact = () => {
               <ContactForm />
             </motion.div>
           </div>
+          {/* Calendly Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="mt-16"
+          >
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6 text-center">
+              Schedule a Meeting
+            </h2>
+            <div className="calendly-inline-widget" data-url="https://calendly.com/nirali-215becig006/30min" style={{ minWidth: '320px', height: '700px' }}></div>
+          </motion.div>
         </div>
       </section>
     </div>
