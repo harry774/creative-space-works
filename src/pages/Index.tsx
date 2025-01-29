@@ -4,6 +4,7 @@ import { ArrowRight, X } from "lucide-react"; // Import X for the close button
 import { Link } from "react-router-dom";
 import { TransitioningGallery } from "@/components/TransitioningGallery";
 import CountUp from "react-countup";
+import { Helmet } from "react-helmet";
 import {
   Carousel,
   CarouselContent,
@@ -73,6 +74,26 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      {/* Add SEO Meta Tags */}
+      <Helmet>
+        <title>3D Rendering & Design Services</title>
+        <meta
+          name="description"
+          content="Explore professional 3D rendering, 2D modeling, 3D modeling, exterior design, and interior design services. Bring your creative visions to life with expert design solutions."
+        />
+        <meta
+          name="keywords"
+          content="3D rendering, 2D modeling, 3D modeling, rendering, exterior design, interior design, GTA rendering, creative design services"
+        />
+        <meta property="og:title" content="3D Rendering & Design Services | Nirali Bhatt" />
+        <meta
+          property="og:description"
+          content="Explore professional 3D rendering, 2D modeling, 3D modeling, exterior design, and interior design services. Bring your creative visions to life with expert design solutions."
+        />
+        <meta property="og:image" content="https://example.com/images/og-image.jpg" />
+        <meta property="og:url" content="https://example.com" />
+        <meta name="author" content="Nirali Bhatt" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative h-screen flex">
         {/* Left content */}
