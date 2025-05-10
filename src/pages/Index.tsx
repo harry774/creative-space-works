@@ -90,8 +90,7 @@ const Index = () => {
           property="og:description"
           content="Explore professional 3D rendering, 2D modeling, 3D modeling, exterior design, and interior design services. Bring your creative visions to life with expert design solutions."
         />
-        <meta property="og:image" content="https://example.com/images/og-image.jpg" />
-        <meta property="og:url" content="https://example.com" />
+        <meta property="og:url" content="https://3drendersstudio.com" />
         <meta name="author" content="Nirali Bhatt" />
       </Helmet>
       {/* Hero Section */}
@@ -367,7 +366,7 @@ const features = [
 
 const portfolioItems = [
   {
-    title: "Modern Kitchen Design",
+    title: "Modern Kitchen Design in GTA",
     category: "Interior Design",
     image: "/images/image1.jpeg",
   },
@@ -462,7 +461,7 @@ const portfolioItems = [
     image: "/images/image19.jpeg",
   },
   {
-    title: "Villa Design",
+    title: "Villa Design in Canada",
     category: "Exterior Design",
     image: "/images/image20.jpeg",
   },
@@ -472,7 +471,7 @@ const portfolioItems = [
     image: "/images/image21.jpeg",
   },
   {
-    title: "Farm House Design",
+    title: "Farm House Design in Mississauga",
     category: "Exterior Design",
     image: "/images/image22.jpeg",
   },
