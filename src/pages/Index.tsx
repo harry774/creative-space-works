@@ -76,10 +76,10 @@ const Index = () => {
     <div className="min-h-screen">
       {/* Add SEO Meta Tags */}
       <Helmet>
-        <title>3D Rendering & Design Services</title>
+        <title>Professional 3D Rendering Services & Architectural Design in Canada | 3D Modeling | 3D Walkthrough rendering video | 3D Renders</title>
         <meta
           name="description"
-          content="Explore professional 3D rendering, 2D modeling, 3D modeling, exterior design, and interior design services. Bring your creative visions to life with expert design solutions."
+          content="Explore professional 3D rendering, 2D modeling, 3D modeling, exterior design, and interior design services in Canada. Bring your creative visions to life with expert design solutions."
         />
         <meta
           name="keywords"
