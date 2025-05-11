@@ -85,7 +85,7 @@ const Index = () => {
           name="keywords"
           content="3D rendering, 2D modeling, 3D modeling, rendering, exterior design, interior design, GTA rendering, creative design services"
         />
-        <meta property="og:title" content="3D Rendering & Design Services | Nirali Bhatt" />
+        <meta property="og:title" content="Professional 3D Rendering Services & Architectural Design in Canada | 3D Modeling | 3D Walkthrough rendering video | 3D Renders" />
         <meta
           property="og:description"
           content="Explore professional 3D rendering, 2D modeling, 3D modeling, exterior design, and interior design services. Bring your creative visions to life with expert design solutions."
