@@ -35,7 +35,7 @@ const Navigation = () => {
           <Link to="/" className="mr-auto">
             <img
               src="/images/nav-logo.png"
-              alt="Brand Logo"
+              alt="3D Renders Studio Canada"
               className="h-14 max-h-full w-auto object-contain" // Constrain logo height within nav bar
             />
           </Link>
