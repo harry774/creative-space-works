@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Box, PenTool, Home, Building2, Layout, Image, Trees } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
+import FooterSection from "@/components/Footer";
 
 const Services = () => {
   return (
@@ -61,6 +62,7 @@ const Services = () => {
           </motion.div>
         </div>
       </section>
+      <FooterSection />
     </div>
   );
 };

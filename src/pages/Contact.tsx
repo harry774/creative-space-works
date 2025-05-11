@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Instagram } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
+import FooterSection from "@/components/Footer";
 
 const Contact = () => {
   // Load Calendly script
@@ -94,6 +95,7 @@ const Contact = () => {
           </motion.div>
         </div>
       </section>
+      <FooterSection />
     </div>
   );
 };

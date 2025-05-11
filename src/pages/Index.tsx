@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { ArrowRight, X } from "lucide-react"; // Import X for the close button
 import { Link } from "react-router-dom";
 import { TransitioningGallery } from "@/components/TransitioningGallery";
+import FAQSection from "@/components/FAQsection"; 
+import FooterSection from "@/components/Footer";
 import CountUp from "react-countup";
 import { Helmet } from "react-helmet";
 import {
@@ -219,7 +221,8 @@ const Index = () => {
           </Carousel>
         </div>
       </section>
-
+      <FAQSection />
+      <FooterSection />
       {/* Modal for Full-Size Image */}
       {isModalOpen && (
         <motion.div
